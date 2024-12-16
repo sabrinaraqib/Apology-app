@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology to My Best Friend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4e1f3;
+            color: #4b0082;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            margin-top: 50px;
+        }
+        button {
+            background-color: #800080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px;
+        }
+        button:hover {
+            background-color: #9932CC;
+        }
+        .no-button {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-1">
+        <h1>I’m really sorry for constantly hurting you</h1>
+        <button onclick="goToPage2()">Pls press me🥹</button>
+    </div>
+
+    <div id="page-2" style="display: none;">
+        <h1>Can I make it up to you?</h1>
+        <button onclick="goToPage3()">Yes</button>
+        <button id="no-button" class="no-button" onmouseover="moveNoButton()">No</button>
+    </div>
+
+    <div id="page-3" style="display: none;">
+        <h1>Make it up to me by:</h1>
+        <button onclick="goToPage4('Divine Ice Cream')">Divine Ice Cream</button>
+        <button onclick="goToPage4('Brownies')">Brownies</button>
+        <button onclick="goToPage4('Your Choice')">Your Choice</button>
+    </div>
+
+    <div id="page-4" style="display: none;">
+        <h1>I’m really sorry for the hurtful words I said🥹</h1>
+        <p>You mean the world to me, and I hate knowing I hurt you. I promise to do better because you deserve the best of me, always love. Thank you for being my everything🥹 Your smile is my favorite thing, and I hope this brings it back.</p>
+        <button onclick="showResponse('yes')">Yes</button>
+        <button onclick="showResponse('no')">No</button>
+    </div>
+
+    <div id="response" style="display: none;">
+        <h2 id="response-message"></h2>
+    </div>
+
+    <script>
+        function goToPage2() {
+            document.getElementById('page-1').style.display = 'none';
+            document.getElementById('page-2').style.display = 'block';
+        }
+
+        function moveNoButton() {
+            const noButton = document.getElementById('no-button');
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        }
+
+        function goToPage3() {
+            document.getElementById('page-2').style.display = 'none';
+            document.getElementById('page-3').style.display = 'block';
+        }
+
+        function goToPage4(choice) {
+            document.getElementById('page-3').style.display = 'none';
+            document.getElementById('page-4').style.display = 'block';
+        }
+
+        function showResponse(answer) {
+            document.getElementById('page-4').style.display = 'none';
+            document.getElementById('response').style.display = 'block';
+            const message = answer === 'yes'
+                ? 'Alhamdulilah, I brought a smile back to your pretty face. I love you with all my heart my loveee🥹🥹🥹.'
+                : 'I’m sorry for constantly hurting you, it is never my intention. I promise to try and never hurt you🥹';
+            document.getElementById('response-message').textContent = message;
+        }
+    </script>
+</body>
+</html>
